@@ -1,5 +1,5 @@
 {
-  "name": "personal-react-component-library",
+  "name": "@cjrojasb/personal-ui-package",
   "version": "0.0.1",
   "description": "This is my Personal UI package library",
   "type": "module",
@@ -26,5 +26,8 @@
   "files": [
     "dist"
   ],
-  "types": "dist/index.d.ts"
+  "types": "dist/index.d.ts",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/cjrojasb"
+  }
 }

@@ -2,8 +2,13 @@ import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import dts from "rollup-plugin-dts";
-import packageJson from "./package.json" assert { type: "json" };
 import postcss from "rollup-plugin-postcss";
+
+import tailwindcss from "tailwindcss";
+
+import tailwindConfig from "./tailwind.config.js";
+
+import packageJson from "./package.json" assert { type: "json" };
 
 export default [
   {
@@ -24,7 +29,17 @@ export default [
       resolve(),
       commonjs(),
       typescript({ tsconfig: "./tsconfig.json" }),
-      postcss()
+      postcss({
+        config: {
+          path: "./postcss.config.mjs",
+        },
+        extensions: [".css"],
+        plugins: [tailwindcss(tailwindConfig)],
+        minimize: true,
+        inject: {
+          insertAt: "top",
+        },
+      }),
     ],
   },
   {

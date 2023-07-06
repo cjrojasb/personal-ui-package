@@ -1,6 +1,6 @@
 {
   "name": "@cjrojasb/personal-ui-package",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "This is my Personal UI package library",
   "type": "module",
   "scripts": {
